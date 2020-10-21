@@ -19,11 +19,11 @@ formatReservations(){
   }
   return this.state.reservations.map(reservation =>{
     return (
-    <section id = {reservation.id}>
-      <h1>{reservation.name}</h1>
-  <h2>{reservation.date}</h2>
-          <h3>{reservation.time}</h3>
-  <h4>{reservation.number}</h4>
+    <section className = 'res-card'id = {reservation.id}>
+      <h1>Name :{reservation.name}</h1>
+  <h2>Date:{reservation.date}</h2>
+          <h3>Time:{reservation.time}</h3>
+  <h4>Guests:{reservation.number}</h4>
       </section>
     )
   })
@@ -34,7 +34,6 @@ render(){
   }
   return(
   <article className='resy-container'>
-     
     {this.formatReservations()}
   </article>
   )

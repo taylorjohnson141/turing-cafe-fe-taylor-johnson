@@ -15,7 +15,9 @@ class ReservationForm extends Component{
 handleChange = (event) =>{
   this.setState({[event.target.name]:event.target.value})
   }
-  
+  handleSubmit = (event) =>{
+    
+  }
 
 render(){
   return (
@@ -36,7 +38,7 @@ render(){
       Number Of Guests:
         <input type="text" name = 'numberOfGuests' value = {this.state.numberOfGuests} onChange = {this.handleChange}/>
       </label>
-      <input type="submit" value="Make Reservation" onSubmit = {this.handleSubmit}  />
+      <input type="submit" className = 'res-button'value="Make Reservation" onSubmit = {this.handleSubmit}  />
     </form>
   )
 }
