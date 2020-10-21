@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 class ReservationForm extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
   
   this.state = {
     name : '',
@@ -12,12 +11,26 @@ class ReservationForm extends Component{
   }
  
 }
+createReservation(){
+return ({
+  name : this.state.name,
+    date :this.state.date,
+    time :this.state.time,
+    number :Number(this.state.numberOfGuests)
+})
+
+}
 handleChange = (event) =>{
   this.setState({[event.target.name]:event.target.value})
-  }
-  handleSubmit = (event) =>{
-    
-  }
+}
+
+handleSubmit = (event) => {
+    event.preventDefault()
+    if(this.state.name === ''){
+      return 
+    }
+    this.props.addReservation(this.createReservation())
+}
 
 render(){
   return (
@@ -38,7 +51,7 @@ render(){
       Number Of Guests:
         <input type="text" name = 'numberOfGuests' value = {this.state.numberOfGuests} onChange = {this.handleChange}/>
       </label>
-      <input type="submit" className = 'res-button'value="Make Reservation" onSubmit = {this.handleSubmit}  />
+      <input type="submit" className = 'res-button'value="Make Reservation" onClick = {this.handleSubmit}  />
     </form>
   )
 }

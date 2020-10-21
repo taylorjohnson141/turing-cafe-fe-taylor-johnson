@@ -3,6 +3,17 @@ import './App.css';
 import Reservations from '../Reservations'
 import ReservationForm from '../ReservationForm'
 class App extends Component {
+  constructor(){
+    super()
+    this.state ={
+      reservations:[]
+    }
+  }
+  addReservation = (reservation) =>{
+    console.log(reservation)
+    console.log(this)
+    this.setState({reservations:reservation})
+  }
   render() {
     return (
       <div className="App">
@@ -10,8 +21,8 @@ class App extends Component {
         <div className='resy-form'>
 
         </div>
-        <ReservationForm/>
-        <Reservations/>
+        <ReservationForm addReservation ={this.addReservation}/>
+        <Reservations reservations ={this.state.reservations}/>
         </div>
     )
   }

@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import {getReservations} from './apiCalls'
 class Reservations extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
   
   this.state ={
-
+    reservations:[]
   }
 }
 async componentDidMount(){
  let reservations = await getReservations()
- console.log(reservations)
  this.setState({reservations:reservations})
+
 }
 formatReservations(){
-  if(!this.state.reservations){
+
+  if(!this.state.reservations.length){
     return
+  }
+  if(this.props.reservations !== undefined && this.props.reservations.name !== ''){
+    this.state.reservations.push(this.props.reservations)
   }
   return this.state.reservations.map(reservation =>{
     return (
