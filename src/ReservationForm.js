@@ -5,26 +5,40 @@ class ReservationForm extends Component{
     super()
   
   this.state = {
-
+    name : '',
+    date :'',
+    time :'',
+    numberOfGuests :''
   }
+ 
 }
+handleChange = (event) =>{
+  this.setState({[event.target.name]:event.target.value})
+  }
+  
+
 render(){
   return (
-    <form >
-      <label for="Name">
-      <input type="text"/>
+    <form className = 'form'>
+      <label for="Name" value = 'Name'>
+        Name: 
+      <input type="text" name ='name' value = {this.state.name} onChange = {this.handleChange} />
       </label>
-      <label for="date">
-        <input type="text"/>
+      <label for="date" value = 'Date (mm/dd)'>
+        Date:
+        <input type="text" name = 'date' value = {this.state.date} onChange = {this.handleChange}/>
       </label>
-      <label for="time">
-      <input type="text"/>
+      <label for="time" value = 'time'>
+        Time:
+      <input type="text" name = 'time' value = {this.state.time} onChange = {this.handleChange}/>
       </label>
-      <label for="numberOfGuests">
-        <input type="text"/>
+      <label for="numberOfGuests" value = 'Number Of Guests'>
+      Number Of Guests:
+        <input type="text" name = 'numberOfGuests' value = {this.state.numberOfGuests} onChange = {this.handleChange}/>
       </label>
-      <input type="submit" value="Make Reservation" onSubmit = {} />
+      <input type="submit" value="Make Reservation" onSubmit = {this.handleSubmit}  />
     </form>
   )
 }
 }
+export default ReservationForm

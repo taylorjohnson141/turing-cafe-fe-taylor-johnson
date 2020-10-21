@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Reservations from '../Reservations'
+import ReservationForm from '../ReservationForm'
 class App extends Component {
   render() {
     return (
@@ -9,6 +10,7 @@ class App extends Component {
         <div className='resy-form'>
 
         </div>
+        <ReservationForm/>
         <Reservations/>
         </div>
     )
