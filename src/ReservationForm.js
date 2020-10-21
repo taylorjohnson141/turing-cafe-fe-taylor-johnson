@@ -26,9 +26,7 @@ handleChange = (event) =>{
 
 handleSubmit = (event) => {
     event.preventDefault()
-    if(this.state.name === ''){
-      return 
-    }
+  
     this.props.addReservation(this.createReservation())
 }
 
@@ -39,7 +37,7 @@ render(){
         Name: 
       <input type="text" name ='name' value = {this.state.name} onChange = {this.handleChange} />
       </label>
-      <label for="date" value = 'Date (mm/dd)'>
+      <label  type ='text' value = 'Date (mm/dd)'>
         Date:
         <input type="text" name = 'date' value = {this.state.date} onChange = {this.handleChange}/>
       </label>
